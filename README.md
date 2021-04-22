@@ -35,7 +35,7 @@ state = {
 [uuid](https://www.npmjs.com/package/uuid#version-4). После завершения этого
 шага, приложение должно выглядеть примерно так.
 
-![preview](.src/mockup/step-1.png)
+![preview](./src/mockup/step-1.png)
 
 ## Шаг 2
 
@@ -65,7 +65,7 @@ state = {
 
 После завершения этого шага, приложение должно выглядеть примерно так.
 
-![preview](.src/mockup/step-2.png)
+![preview](./src/mockup/step-2.png)
 
 ## Шаг 3
 
@@ -85,7 +85,7 @@ state = {
 }
 ```
 
-![preview](.src/mockup/step-3.gif)
+![preview](./src/mockup/step-3.gif)
 
 Когда мы работаем над новым функционалом, бывает удобно жестко закодировать
 некоторые данные в состояние. Это избавит от необходимости вручную вводить
@@ -141,11 +141,11 @@ state = {
 телефонной книге. При попытке выполнить такое действие выведи `alert` с
 предупреждением.
 
-![preview](.src/mockup/step-5.png)
+![preview](./src/mockup/step-5.png)
 
 ## Шаг 6
 
 Расширь функционал приложения, позволив пользователю удалять ранее сохраненные
 контакты.
 
-![preview](.src/mockup/step-6.gif)
+![preview](./src/mockup/step-6.gif)
