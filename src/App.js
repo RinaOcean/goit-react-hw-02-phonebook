@@ -12,24 +12,19 @@ class App extends Component {
     // number: '',
   };
 
-  // handleChange = event => {
-  //   event.preventDefault();
-  //   const { name, value } = event.currentTarget;
-  //   // console.log(event.currentTarget.name);
-  //   this.setState({ [name]: value });
-  // };
-
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   console.log(this.state);
-  // };
+  formSubmitHandler = data => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, data],
+    }));
+    console.log(this.state.contacts);
+  };
 
   render() {
     const { contacts } = this.state;
     return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <ContactsList>
           <ContactsListItem contacts={contacts} />

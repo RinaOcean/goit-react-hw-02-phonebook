@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { nanoid } from 'nanoid';
 class ContactForm extends Component {
   state = {
     name: '',
@@ -7,19 +7,24 @@ class ContactForm extends Component {
   };
 
   handleChange = event => {
-    event.preventDefault();
     const { name, value } = event.currentTarget;
-    // console.log(event.currentTarget.name);
+
     this.setState({ [name]: value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+
+    this.props.onSubmit({ id: nanoid(), ...this.state });
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {
-    const { name } = this.state;
+    const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
@@ -39,6 +44,7 @@ class ContactForm extends Component {
           <input
             type="tel"
             name="number"
+            value={number}
             pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
             title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
             required
