@@ -6,6 +6,9 @@ class ContactForm extends Component {
     number: '',
   };
 
+  nameInputId = nanoid();
+  numberInputId = nanoid();
+
   handleChange = event => {
     const { name, value } = event.currentTarget;
 
@@ -27,30 +30,28 @@ class ContactForm extends Component {
     const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input
-            type="text"
-            value={name}
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            required
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Number
-          <input
-            type="tel"
-            name="number"
-            value={number}
-            pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
-            title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
-            required
-            onChange={this.handleChange}
-          />
-        </label>
+        <label htmlFor={this.nameInputId}>Name</label>
+        <input
+          type="text"
+          value={name}
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
+          onChange={this.handleChange}
+          id={this.nameInputId}
+        />
+        <label htmlFor={this.numberInputId}>Number</label>
+        <input
+          type="tel"
+          name="number"
+          value={number}
+          pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+          title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
+          required
+          onChange={this.handleChange}
+          id={this.numberInputId}
+        />
         <button type="submit">Add contact</button>
       </form>
     );
