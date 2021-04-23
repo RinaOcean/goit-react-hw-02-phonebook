@@ -16,7 +16,6 @@ class App extends Component {
     this.setState(prevState => ({
       contacts: [...prevState.contacts, data],
     }));
-    console.log(this.state.contacts);
   };
 
   render() {
