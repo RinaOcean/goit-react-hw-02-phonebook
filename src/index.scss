@@ -12,7 +12,30 @@ code {
     monospace;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 ul {
+  list-style: none;
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0px;
 }
