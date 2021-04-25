@@ -9,4 +9,8 @@
   input {
     margin-bottom: 20px;
   }
+
+  li + li {
+    margin-top: 10px;
+  }
 }
