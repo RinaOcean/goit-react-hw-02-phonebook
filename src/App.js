@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ContactsList from './components/ContactsList';
 import ContactsListItem from './components/ContactListItem';
 import ContactForm from './components/ContactForm';
@@ -7,6 +8,11 @@ import Filter from './components/Filter';
 import './App.scss';
 
 class App extends Component {
+  static propTypes = {
+    contacts: PropTypes.array,
+    filter: PropTypes.number,
+  };
+
   state = {
     contacts: [],
     // contacts: [
@@ -38,7 +44,6 @@ class App extends Component {
   };
 
   deleteHandler = contactId => {
-    console.log('onDelete');
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
